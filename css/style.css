@@ -1,0 +1,339 @@
+@charset "UTF-8";a,big,blockquote,body,canvas,caption,center,aside,div,dl,dt,em,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,li,menu,nav,object,ol,section,small,span,strong,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: initial
+}
+
+aside,footer,header,hgroup,menu,nav,section {
+    display: block
+}
+
+ol,ul {
+    list-style: none
+}
+
+blockquote,q {
+    quotes: none
+}
+
+blockquote:after,blockquote:before,q:after,q:before {
+    content: "";
+    content: none
+}
+
+*,:after,:before {
+    box-sizing: border-box
+}
+
+@media screen{
+    body{
+        background-color: #000;
+        color: #eee;
+    }
+    .Summary {
+        padding:8px 16px;
+        background-color: #1a1a1a;
+        color: #bdbdbd
+    }
+    .Header {
+        display: grid;
+        background-color: #1a1a1a;
+        z-index: 9
+    }
+    .App {
+        background-color: #1a1a1a;
+        margin: 20px auto;
+    }
+    .Media-CreatedAt {
+        color: #aaa;
+    }
+    .Media:nth-child(2n) {
+        background-color: #202224
+    }
+    
+    .Media:nth-child(odd) {
+        background-color: #1a1a1a;
+    }
+    .Media-Metadata {
+        margin-top:12px;
+        color: #dfdfdf;
+    }
+    .Media-Filename {
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Header {
+        grid-template-columns: min-content 1fr;
+        grid-template-areas: "logo header" "summary summary";
+        padding-top: 16px
+    }
+    .Header .Summary {
+        margin:8px 0 4px
+    }
+    .Header>hgroup {
+        margin-left:16px
+    }
+    .App {
+        max-width:480px
+    }
+    .Folder>header {
+        background-color: #2e3033;
+        color: #bdbdbd;
+        padding:8px 16px
+    }
+    .Media {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 16px 16px
+    }
+    .Media-Stills {
+        display: flex;
+        flex-direction: column
+    }
+    .Media .Thumbnail {
+        margin-top:16px
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Media {
+        display: grid;
+        column-gap: 20px;
+        row-gap: 10px;
+        grid-template-columns: 310px 1fr;
+        grid-template-rows: min-content 1fr;
+        grid-template-areas: "header stills" "metadata stills"
+    }
+    .Media-Stills {
+        grid-area: stills
+    }
+}
+
+@media print, screen and (min-width: 768px) {
+    .Header {
+        grid-template-columns:min-content 1fr 1fr;
+        grid-template-areas: "logo header info" "summary summary summary";
+        row-gap: 12px;
+        padding-top: 20px
+    }
+    .Header>hgroup {
+        margin-left:20px
+    }
+    .App {
+        max-width:1220px
+    }
+    .Folder>header {
+        background-color: #2e3033;
+        color: #bdbdbd;
+        padding:8px 20px
+    }
+    .Media-Metadata {
+        grid-area:metadata
+    }
+    .Media {
+        padding: 20px;
+    }
+    .Media-Stills {
+        display: grid;
+        row-gap: 12px;
+        column-gap: 12px;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .Media .Thumbnail {
+        align-self:start
+    }
+}
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+    .Summary {
+        padding:8px 20px;
+        color: #777777
+    }
+    .Header {
+        grid-template-columns:min-content 1fr 1fr;
+        grid-template-areas: "logo header info" "summary summary summary";
+        row-gap: 12px;
+        padding-top: 20px;
+        display: grid;
+        z-index: 9
+    }
+    .Folder>header {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    .Media {
+        display: block;
+        padding: 20px;
+        break-inside: avoid
+    }
+    .App {
+        background-color: #ffffff;
+        margin: 0px;
+    }
+    .Media-CreatedAt {
+        color: #000;
+    }
+    .Media-Metadata {
+        grid-area: metadata;
+        margin-top: 12px;
+        color: #000000;
+    }
+    .Media-Filename {
+        color: #000;
+    }
+    .Media-Stills {
+        margin-top: 4px
+    }
+    .Media .Thumbnail {
+        align-self:start
+    }
+}
+
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    text-rendering: optimizelegibility;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.App {
+    width: 100%;
+    min-width: 320px;
+    min-height: calc(100vh - 40px);
+}
+
+.Summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.Summary ol {
+    display: flex;
+    flex-direction: row;
+    flex: none
+}
+
+.Summary ol>li:not(:last-of-type):after {
+    margin: 0 4px;
+    content: "•"
+}
+
+.Header>hgroup {
+    grid-area: header;
+    align-self: center
+}
+
+.Header>hgroup>h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 28px;
+    font-weight: 600
+}
+
+.Header>hgroup>h1,.Header>hgroup>h2 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.25
+}
+
+.Header>hgroup>h2 {
+    font-size: 16px
+}
+
+.Header .Summary {
+    grid-area: summary
+}
+
+.Folder>header {
+    position: sticky;
+    top: 0;
+    backface-visibility: hidden;
+    z-index: 1
+}
+
+.Folder--stills {
+    display: flex;
+    flex-direction: column
+}
+
+.Media header {
+    display: flex;
+    flex-direction: column;
+    grid-area: header
+}
+
+.Media a {
+    text-decoration: none
+}
+
+.Media-Filename {
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-word
+}
+
+.Media-CreatedAt {
+    line-height: 1.3;
+    font-size: 11px
+}
+
+.Media-Metadata>ol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 1.3;
+    font-size: 11px
+}
+
+.Media-Metadata>ol:nth-of-type(4) {
+    margin-top: 4px
+}
+
+.Media-Metadata>ol>li:not(:last-of-type):after {
+    margin: 0 2px;
+    content: "•"
+}
+
+.Thumbnail {
+    position: relative
+}
+
+.Thumbnail:after {
+    display: block;
+    padding-top: 56.25%;
+    content: ""
+}
+
+.Thumbnail .Image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #060606;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: background-image 500ms ease 250ms;
+    -webkit-print-color-adjust: exact
+}
+
+.Footer {
+    padding: 16px;
+    text-align: center;
+    color: #aaa
+}

@@ -136,7 +136,7 @@ def create_reports(input_path: str, n_cds: str, progress=gr.Progress()):
         for path in progress.tqdm(os.listdir(input_path), desc="Loading..."):
             # check if current path is a file
             in_file = os.path.join(input_path, path)
-            if os.path.isfile(in_file) and path.lower().endswith(('.mov', '.mp4', '.avi', '.mxf', '.r3d')):
+            if os.path.isfile(in_file) and path.lower().endswith(('.mov', '.mp4', '.avi', '.mxf')):
                 ClipCount += 1
                 oname = os.path.splitext(path)[0]
                 snaps_path = create_dirs(output_path, os.path.join(snaps_dir,oname))

@@ -7,6 +7,8 @@ Hi! I made this tool so I can have some nice reports for my dailies. I hope you 
 
 The tool generates a report for a whole folder (the one that has all the video files, usually the copied video folder from camera) as a HTML file and if you want it can also do a PDF from the HTML, this is optional but I'll clarify that bellow. The script uses `gradio` as an UI so you'll have to copy and paste the IP address shown in terminal to your explorer, this is done locally so don't worry.
 
+![sample](sample/chrome_B1gGay2iyi.png)
+
 ## How to use
 
 The script asks for an `Input path` and the number of folders it has to go up so it can create a "Reports" folder there, the default value is 2 and minimum is 1, this is useful for me because normally I create a "Footage" folder in my project. The script will keep the original video folder name by creating a subfolder with the same name inside "Reports".
